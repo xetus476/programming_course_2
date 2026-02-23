@@ -1,32 +1,39 @@
 #include <iostream>
-#include <string>
-#include <vector>
+#include <cstring>  
+#include <string>   
 
-// Lab 09
-// TODO: реализуйте решение по заданию в labs/lab09_strings/README.md
-//
-// Рекомендация по выводу:
-// - без лишнего текста
-// - числа через пробел
-// - если несколько строк — в фиксированном порядке
+using namespace std;
+
 int main() {
-    // Упражнения 1–3: демонстрация/анализ строковых функций (без ввода).
-    // TODO: добавьте примеры и вывод результатов.
+    setlocale(LC_ALL, "Russian");
 
-    // Упражнение 4: ввод количества слов и самих слов.
-    int word_count = 0;
-    if (!(std::cin >> word_count)) {
-        return 0;
-    }
+    char str1[50] = "Привет";
+    char str2[50] = "Мир";
+    char result[100]; 
 
-    std::vector<std::string> words;
-    words.reserve(word_count);
-    for (int i = 0; i < word_count; ++i) {
-        std::string word;
-        std::cin >> word;
-        words.push_back(word);
-    }
+    int len1 = strlen(str1);
+    cout << "Длина строки = " << len1 << endl;
 
-    // TODO: выведите слова с четными номерами (2, 4, 6, ...), по одному в строке.
+    strcpy(result, str1);
+    cout << "Копия строки =  " << result << endl;
+
+
+    strcat(result, " ");
+    strcat(result, str2);
+    cout << "Добавили в конец " << result << endl;
+
+    string s1 = "programming";
+    string s2 = " on CPP";
+    string s3;
+
+    int lenS1 = s1.length();
+    cout << "Длина строки = " << lenS1 << endl;
+
+    s1.append(s2);
+    cout << "Добавили в конец = " << s1 << endl;
+
+    s3 = s1.substr(0, 11);
+    cout << "Первые 11 символов =  " << s3 << endl;
+
     return 0;
 }
