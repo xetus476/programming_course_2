@@ -17,7 +17,6 @@ int main() {
     strcpy(result, str1);
     cout << "Копия строки =  " << result << endl;
 
-
     strcat(result, " ");
     strcat(result, str2);
     cout << "Добавили в конец " << result << endl;
