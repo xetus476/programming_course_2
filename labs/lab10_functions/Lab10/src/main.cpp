@@ -80,6 +80,11 @@ int main() {
 
     delete[] mass;  
     mass = nullptr;
+
+    delete[] pac_mass;  
+
+    delete[] unp_mass;  
+    unp_mass = nullptr;
     
     return 0;
 }
