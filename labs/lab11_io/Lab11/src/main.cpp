@@ -14,7 +14,7 @@ int main() {
     scanf("%d %f", &SCAN1, &SCAN2 );
     printf("VIVOD V C : %d %.2f \n", SCAN1, SCAN2);
 
-    char g[10] ;
+    char g[10];
     getchar();
     gets(g);
     puts("ETO PUTS");
