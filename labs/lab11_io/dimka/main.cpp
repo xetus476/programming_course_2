@@ -22,7 +22,7 @@ int main() {
     printf("Enter int: ");
     scanf("%d", &y);
     printf("Entered: %d\n", y);
-    cin.ignore(); 
+    cin.ignore(); __BFLT16_HAS_QUIET_NAN__
 
     // fopen, fclose, fprintf, fscanf
     FILE *fp = fopen("demo.txt", "w");
