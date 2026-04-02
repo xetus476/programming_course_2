@@ -11,16 +11,55 @@ void Del(int n, int m, int count, float** ukaz){
     }
 }
 
+void Do_Del(int n, int m,int row, float** ukaz){
+    int nuli = 0;
+    int j_stat = 0;
+    for(int j = 0; j < m; j++){
+        if (abs(ukaz[n][j]) == 0 && j==n){
+            nuli++; 
+            j_stat =j;
+            break;
+        }
+    }
+    float buff = 0;
+    if(nuli != 0 && j_stat + 1 < row){
+        for(int i=0; i<m; i++){
+            buff = ukaz[n][i];
+            ukaz[n][i] = ukaz[j_stat + 1][i] ;
+            ukaz[j_stat + 1][i] = buff; 
+        }
+        for(int i = 0; i < row; i++){
+        for(int j = 0; j < m; j++){
+            cout << ukaz[i][j] << " "; 
+        }
+        cout << endl;  
+    }
+    cout << endl; 
+    }
+}
+
 void ProcessMatrix(float** matrix, int rows, int cols) {
-    random_device rd;                
-    mt19937 gen(rd());               
-    uniform_int_distribution<> dist(1, 10); 
+    // random_device rd;                
+    // mt19937 gen(rd());               
+    // uniform_int_distribution<> dist(1, 10); 
 
     for(int i = 0; i < rows; i++){
         for(int j = 0; j < cols; j++){
-            matrix[i][j] = dist(gen); 
+            cin >> matrix[i][j] ; 
         }
     }
+    // matrix[0][0] = 9;
+    // matrix[0][1] = 0;
+    // matrix[0][2] = 0;
+    // matrix[0][3] = 10;
+    // matrix[1][0] = 3;
+    // matrix[1][1] = 0;
+    // matrix[1][2] = 1;
+    // matrix[1][3] = 1;
+    // matrix[2][0] = 4;
+    // matrix[2][1] = 1;
+    // matrix[2][2] = 3;
+    // matrix[2][3] = -4;
 
     for(int i = 0; i < rows; i++){
         for(int j = 0; j < cols; j++){
@@ -29,6 +68,10 @@ void ProcessMatrix(float** matrix, int rows, int cols) {
         cout << endl;  
     }
     cout << endl;  
+
+    for(int i = 0; i<rows; i++){
+        Do_Del(i, cols,rows, matrix);
+    }
 
     int count = 0;
 
@@ -53,8 +96,8 @@ void ProcessMatrix(float** matrix, int rows, int cols) {
 }
 
 int main() {
-    int rows = 3;
-    int cols = 4;
+    int rows = 2;
+    int cols = 5;
 
     float** matrix = new float*[rows];
     for(int i = 0; i < rows; i++){
