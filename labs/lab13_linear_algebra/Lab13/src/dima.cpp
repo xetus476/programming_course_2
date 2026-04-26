@@ -45,7 +45,7 @@ void Gauss(float** mat, int rows, int cols) {
     for (int cur_row = 0; cur_row < rows - 1; cur_row++) {
 
        
-        if (mat[cur_row][cur_col] == 0) {
+        if (mat[cur_row][cur_col] <= 0.0001) {
             cout << "На позиции [" << cur_row << "][" << cur_col << "] ноль, ищем замену..." << endl;
             int found = -1;
             for (int i = cur_row + 1; i < rows; i++) {
