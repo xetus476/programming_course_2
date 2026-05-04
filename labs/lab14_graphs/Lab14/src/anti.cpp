@@ -37,19 +37,19 @@ int main() {
         fout1 << endl;
     }
 
-    vector<vector<int>> adj(col_versh);
+    vector<vector<int>> s_kem(col_versh);
 
     for(int i = 0; i < col_versh; i++){
         for(int j = 0; j < col_versh; j++){
             if(mat_smej[i][j] == 1){
-                adj[i].push_back(j + 1);
+                s_kem[i].push_back(j + 1);
             }
         }
     }
 
     for (int i = 0; i < col_versh; i++) {
         fout2 << i + 1 << ": ";
-        for (int v : adj[i]) {
+        for (int v : s_kem[i]) {
             fout2 << v << " ";
         }
         fout2 << endl;
@@ -58,7 +58,7 @@ int main() {
     vector<vector<int>> rebra(col_versh);
 
     for (int i = 0; i < col_versh; i++) {
-        for (int v : adj[i]) {
+        for (int v : s_kem[i]) {
             rebra[i].push_back(i + 1);
             rebra[i].push_back(v);
         }
