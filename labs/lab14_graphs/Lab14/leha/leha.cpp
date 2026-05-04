@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <vector>
-#include <sstream>
+#include <vector> 
 using namespace std;
 
 int main() {
@@ -25,7 +24,7 @@ int main() {
         for (int j = 0; j < n; ++j) {
             if (mat[i][j]) adj_list[i].push_back(j);
         }
-        for (int neighbor : adj_list[i]) list_out << neighbor << " ";
+        for (int ng : adj_list[i]) list_out << ng << " ";
         list_out << endl;
     }
     for (const auto& e : edges) edges_out << e.first << " " << e.second << endl;
