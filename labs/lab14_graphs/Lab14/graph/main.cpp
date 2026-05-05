@@ -3,14 +3,27 @@
 #include <algorithm>
 using namespace std;
 
-void Puti(int mat[10][10]){
+int Puti(int mat[10][10],int strok, int& col_vo){
+    int i = 1;
+    for(int j = 0; j < 10; j++){
+        if(mat[strok][j] == 9){
+            col_vo++;
+            //cout << col_vo;
+            break; 
+        }
+        else if(mat[strok][j] != 0){
+            Puti(mat, j, col_vo);
+            i++;
+        }
+    }
 
+    return col_vo;
 }
 
 int main(){
     int a, perv, vtoroe;
     cin >> a;
-    int mat[a][a];
+    int mat[10][10];
 
     for(int i = 0; i<a; i++){
         for(int j = 0; j<a; j++){
@@ -33,7 +46,10 @@ int main(){
         cout << endl;
     }
 
-    for(int j = 0; j<a; j++ ){
-        Puti(mat);
-    }
+    int col_vo = 0;
+    Puti(mat, 0, col_vo);
+
+    cout <<"colichestvo putei = "<< col_vo;
+
+    return 0;
 }
